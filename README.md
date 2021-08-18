@@ -1,3 +1,5 @@
+# Gráfico feitos com PowerBI  
+![](https://raw.githubusercontent.com/bibiperigosa28/ProjetoMediPre-o-/main/imagem/powerbi.jpeg)
 # ProjetoMediPreço
 - Projeto processo seletivo para a empresa MediPreço;
 - Programas necessários:
@@ -151,5 +153,4 @@ SELECT C.NOME, MAX(P.PRECO) AS MAIORPRECO FROM CATEGORIA AS C
 INNER JOIN PRODUTO AS P ON P.IDCATEGORIA = C.ID
 GROUP BY C.ID;
 
-  
-![](https://raw.githubusercontent.com/bibiperigosa28/ProjetoMediPre-o-/main/imagem/powerbi.jpeg)
+
