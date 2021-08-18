@@ -140,10 +140,9 @@ GROUP BY C.ID;
 <html>
     <head>
         <mate charest="utf-8" />
-        <title>Hello world!</title>
     </head>
     <body>
-       <img src=”../imagem/powerbi.jpeg” alt=”some text” width=300 height=200>
+       <img src=”https://github.com/bibiperigosa28/ProjetoMediPre-o-/blob/main/imagem/powerbi.jpeg” alt=”some text” width=300 height=200>
     </body>
 </html>
 ```
