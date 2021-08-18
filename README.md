@@ -1,6 +1,8 @@
-# Gráfico feitos com PowerBI  
-![](https://raw.githubusercontent.com/bibiperigosa28/ProjetoMediPre-o-/main/imagem/powerbi.jpeg)
 # ProjetoMediPreço
+
+Gráficos PowerBI  
+![](https://raw.githubusercontent.com/bibiperigosa28/ProjetoMediPre-o-/main/imagem/powerbi.jpeg)
+
 - Projeto processo seletivo para a empresa MediPreço;
 - Programas necessários:
     - Vscode
@@ -14,17 +16,16 @@
 
 - Passo a passo para realização do projeto MediPreço:
 
-1. - Instalação do Git;
+    - Instalação do Git;
 	
-	https://git-scm.com/download/win
+	    https://git-scm.com/download/win
 	     
-
-2. -Iniciar projeto 
+    - Iniciar projeto 
     
-    -git clone https://github.com/-bibiperigosa28/ProjetoMediPre-o-.git
+        -git clone https://github.com/-bibiperigosa28/ProjetoMediPre-o-.git
     
 
-3. - Criar tabela de medicamentos no Mysql;
+- Criar tabela de medicamentos no Mysql;
     ```
     -CREATE DATABASE DADOS;
     USE DADOS;
@@ -38,7 +39,7 @@
     )ENGINE=INNODB DEFAULT CHARSET=UTF8;
     
 
-4. - Importar CSV da tabela "Medicamento" para o Mysql,logo após clicar com o botão direito sobre a tabela "medicamento" abrir a opção "Table Date Import Wizard" e selecione o arquivo para exportação;
+- Importar CSV da tabela "Medicamento" para o Mysql,logo após clicar com o botão direito sobre a tabela "medicamento" abrir a opção "Table Date Import Wizard" e selecione o arquivo para exportação;
 
 
 #### TABELA PRODUTO
@@ -62,7 +63,7 @@ INNER JOIN CATEGORIA AS C ON M.CATEGORIA = C.NOME;
 
 ```
 
-### TABELA CATEGORIA
+#### TABELA CATEGORIA
 ```
 CREATE TABLE CATEGORIA(
     ID INT(11) NOT NULL AUTO_INCREMENT,
@@ -72,14 +73,14 @@ CREATE TABLE CATEGORIA(
 
 ### UPDATE categoria SET NOME = 'SEM CATEGORIA' WHERE ID= 6;
 ```
-### CARGA
+#### CARGA
 ```
 INSERT INTO CATEGORIA
 (NOME)
 SELECT CATEGORIA FROM MEDICAMENTO  GROUP BY CATEGORIA;
 ```
 
-### TABELA COMPRA
+#### TABELA COMPRA
 ```
 CREATE TABLE COMPRA (
     ID INT(11) NOT NULL AUTO_INCREMENT,
@@ -93,7 +94,7 @@ CREATE TABLE COMPRA (
 )  ENGINE=INNODB DEFAULT CHARSET=UTF8;
 ```
 
-### TABELA COMPRAPRODUTO
+#### TABELA COMPRAPRODUTO
 ```
 CREATE TABLE COMPRAPRODUTO(
     ID INT(11) NOT NULL AUTO_INCREMENT,
@@ -107,7 +108,7 @@ CREATE TABLE COMPRAPRODUTO(
 )  ENGINE=INNODB DEFAULT CHARSET=UTF8;
 ```
 
-### TABELA CLIENTE
+#### TABELA CLIENTE
 ```
 CREATE TABLE CLIENTE (
     ID INT(11) NOT NULL AUTO_INCREMENT,
@@ -116,7 +117,7 @@ CREATE TABLE CLIENTE (
 )  ENGINE=INNODB DEFAULT CHARSET=UTF8;
 
 ```
-### CARGA CLIENTE 
+#### CARGA CLIENTE 
 ```
 INSERT INTO dados.cliente
 (NOME)
@@ -124,29 +125,29 @@ VALUES
 ('GABRIELLY SOARES CALDEIRA');
 ```
 
-### VIEW
-- ##### Total de produtos daquela categoria
+#### VIEW
+- #### Total de produtos daquela categoria
 ```
 CREATE VIEW  VW_TOTALPRODUTOCATEGORIA AS 
 SELECT C.NOME, count(*) AS QTDPRODUTO FROM CATEGORIA AS C 
 INNER JOIN PRODUTO AS P ON P.IDCATEGORIA = C.ID
 GROUP BY C.ID;
 ```
-- ##### Produto com menor preço
+- #### Produto com menor preço
 ```
 CREATE VIEW  VW_PRODUTOMENORPRECO AS 
 SELECT C.NOME, MIN(P.PRECO) AS MENORPRECO FROM CATEGORIA AS C 
 INNER JOIN PRODUTO AS P ON P.IDCATEGORIA = C.ID
 GROUP BY C.ID;
 ```
-- ##### Produto em média 
+- #### Produto em média 
 ```
 CREATE VIEW VW_MEDIAPRECO AS 
 SELECT C.NOME, TRUNCATE(AVG(P.PRECO),2)AS MEDIAPRECO FROM CATEGORIA AS C 
 INNER JOIN PRODUTO AS P ON P.IDCATEGORIA = C.ID
 GROUP BY C.ID;
 ```
-- ##### Produto com maior preço
+- #### Produto com maior preço
 
 ```
 CREATE VIEW  VW_PRODUTOMAIORPRECO AS 
