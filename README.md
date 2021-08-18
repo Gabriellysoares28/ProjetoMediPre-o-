@@ -1,16 +1,16 @@
-# ProjetoMediPre-o-
--Projeto processo seletivo para a empresa MediPreço;
--Programas necessários:
+# ProjetoMediPreço
+- Projeto processo seletivo para a empresa MediPreço;
+- Programas necessários:
         - Vscode;
         - Mysql;
--VERSIONAMENTO
-    -git add .
-    -git status 
-    -git checkout origem master
-    -git commit -m "segundo commit"
-    -git push  
+- VERSIONAMENTO
+    - git add .
+    - git status 
+    - git checkout origem master
+    - git commit -m "codigo validado"
+    - git push  
 
--Passo a passo para realização do projeto MediPreço:
+- Passo a passo para realização do projeto MediPreço:
 
 1. - Instalação do Git;
 	
@@ -23,7 +23,7 @@
     
 
 3. - Criar tabela de medicamentos no Mysql;
-    
+    ```
     -CREATE DATABASE DADOS;
     USE DADOS;
     CREATE TABLE MEDICAMENTO(
@@ -40,6 +40,7 @@
 
 5. 
 #### TABELA PRODUTO
+```
 CREATE TABLE PRODUTO (
     ID INT(11) NOT NULL AUTO_INCREMENT,
     IDCATEGORIA INT NOT NULL,
@@ -51,6 +52,7 @@ CREATE TABLE PRODUTO (
 
 
 #### CARGA 
+```
 INSERT INTO produto
 (NOME,CODBARRAS,IDCATEGORIA)
 SELECT M.PRODUTO AS NOME, M.CODBARRA, C.ID AS IDCATEGORIA FROM MEDICAMENTO AS M
@@ -59,6 +61,7 @@ INNER JOIN CATEGORIA AS C ON M.CATEGORIA = C.NOME;
 
 
 ### TABELA CATEGORIA
+```
 CREATE TABLE CATEGORIA(
     ID INT(11) NOT NULL AUTO_INCREMENT,
     NOME VARCHAR(150) NOT NULL,
@@ -68,12 +71,14 @@ CREATE TABLE CATEGORIA(
 ### UPDATE categoria SET NOME = 'SEM CATEGORIA' WHERE ID= 6;
 
 ### CARGA
+```
 INSERT INTO CATEGORIA
 (NOME)
 SELECT CATEGORIA FROM MEDICAMENTO  GROUP BY CATEGORIA;
 
 
 ### TABELA COMPRA
+```
 CREATE TABLE COMPRA (
     ID INT(11) NOT NULL AUTO_INCREMENT,
     IDCLIENTE INT NOT NULL,
@@ -87,6 +92,7 @@ CREATE TABLE COMPRA (
 
 
 ### TABELA COMPRAPRODUTO
+```
 CREATE TABLE COMPRAPRODUTO(
     ID INT(11) NOT NULL AUTO_INCREMENT,
     IDPRODUTO INT NOT NULL,
@@ -100,6 +106,7 @@ CREATE TABLE COMPRAPRODUTO(
 
 
 ### TABELA CLIENTE
+```
 CREATE TABLE CLIENTE (
     ID INT(11) NOT NULL AUTO_INCREMENT,
     NOME VARCHAR(150) NOT NULL,
@@ -108,33 +115,38 @@ CREATE TABLE CLIENTE (
 
 
 ### CARGA CLIENTE 
+```
 INSERT INTO dados.cliente
 (NOME)
 VALUES
 ('GABRIELLY SOARES CALDEIRA');
 
 ### VIEW
+##### Total de produtos daquela categoria
 ```
-Total de produtos daquela categoria;
 CREATE VIEW  VW_TOTALPRODUTOCATEGORIA AS 
 SELECT C.NOME, count(*) AS QTDPRODUTO FROM CATEGORIA AS C 
 INNER JOIN PRODUTO AS P ON P.IDCATEGORIA = C.ID
 GROUP BY C.ID;
+
+##### Produto com menor preço
  ```
 CREATE VIEW  VW_PRODUTOMENORPRECO AS 
 SELECT C.NOME, MIN(P.PRECO) AS MENORPRECO FROM CATEGORIA AS C 
 INNER JOIN PRODUTO AS P ON P.IDCATEGORIA = C.ID
 GROUP BY C.ID;
+##### Produto em média 
 ```
 CREATE VIEW VW_MEDIAPRECO AS 
 SELECT C.NOME, TRUNCATE(AVG(P.PRECO),2)AS MEDIAPRECO FROM CATEGORIA AS C 
 INNER JOIN PRODUTO AS P ON P.IDCATEGORIA = C.ID
 GROUP BY C.ID;
+##### Produto com maior preço
 ```
 CREATE VIEW  VW_PRODUTOMAIORPRECO AS 
 SELECT C.NOME, MAX(P.PRECO) AS MAIORPRECO FROM CATEGORIA AS C 
 INNER JOIN PRODUTO AS P ON P.IDCATEGORIA = C.ID
 GROUP BY C.ID;
-```
+
   
 ![](https://raw.githubusercontent.com/bibiperigosa28/ProjetoMediPre-o-/main/imagem/powerbi.jpeg)
