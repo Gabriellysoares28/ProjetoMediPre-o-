@@ -1,30 +1,30 @@
 # ProjetoMediPre-o-
-Projeto processo seletivo para a empresa MediPreço.
-Programas necessários:
+-Projeto processo seletivo para a empresa MediPreço;
+-Programas necessários:
         - Vscode;
-        - Mysql
-VERSIONAMENTO
-    git add .
-    git status 
-    git checkout origem master
-    git commit -m "primeito commit"
-    git push  
+        - Mysql;
+-VERSIONAMENTO
+    -git add .
+    -git status 
+    -git checkout origem master
+    -git commit -m "segundo commit"
+    -git push  
 
-Passo a passo para realização do projeto MediPreço:
+-Passo a passo para realização do projeto MediPreço:
 
-1. - instalação do Git
+1. - Instalação do Git;
 	
 	https://git-scm.com/download/win
 	     
 
 2. -Iniciar projeto 
-    '''
-    git clone https://github.com/bibiperigosa28/ProjetoMediPre-o-.git
-    '''
+    
+    -git clone https://github.com/-bibiperigosa28/ProjetoMediPre-o-.git
+    
 
 3. - Criar tabela de medicamentos no Mysql;
-    '''
-    CREATE DATABASE DADOS;
+    
+    -CREATE DATABASE DADOS;
     USE DADOS;
     CREATE TABLE MEDICAMENTO(
     ID INT(11) NOT NULL AUTO_INCREMENT,
@@ -34,12 +34,11 @@ Passo a passo para realização do projeto MediPreço:
     CATEGORIA VARCHAR(100) NOT NULL,
     PRIMARY KEY (ID)
     )ENGINE=INNODB DEFAULT CHARSET=UTF8;
-    '''
+    
 
-4. - Importar CSV da tabela "Medicamento" para o Mysql;
-clicar com o botão direito sobre a tabela "medicamento" abrir a opção "Table Date Import Wizard" e selecione o arquivo para exportação 
+4. - Importar CSV da tabela "Medicamento" para o Mysql,logo após clicar com o botão direito sobre a tabela "medicamento" abrir a opção "Table Date Import Wizard" e selecione o arquivo para exportação;
 
-5. - 
+5. 
 #### TABELA PRODUTO
 CREATE TABLE PRODUTO (
     ID INT(11) NOT NULL AUTO_INCREMENT,
@@ -65,6 +64,8 @@ CREATE TABLE CATEGORIA(
     NOME VARCHAR(150) NOT NULL,
     PRIMARY KEY (ID)
 )  ENGINE=INNODB DEFAULT CHARSET=UTF8;
+
+### UPDATE categoria SET NOME = 'SEM CATEGORIA' WHERE ID= 6;
 
 ### CARGA
 INSERT INTO CATEGORIA
@@ -112,38 +113,37 @@ INSERT INTO dados.cliente
 VALUES
 ('GABRIELLY SOARES CALDEIRA');
 
-### VIWES 
+### VIEW
 Total de produtos daquela categoria;
-CREATE VIEW  TOTALPRODUTOCATEGORIA AS 
+CREATE VIEW  VW_TOTALPRODUTOCATEGORIA AS 
 SELECT C.NOME, count(*) AS QTDPRODUTO FROM CATEGORIA AS C 
 INNER JOIN PRODUTO AS P ON P.IDCATEGORIA = C.ID
 GROUP BY C.ID;
-
-USE DADOS;
- SELECT*FROM CATEGORIA;
- SELECT*FROM PRODUTO;
  
-CREATE VIEW  TOTALPRODUTOCATEGORIA AS 
-SELECT C.NOME, count(*) AS QTDPRODUTO FROM CATEGORIA AS C 
-INNER JOIN PRODUTO AS P ON P.IDCATEGORIA = C.ID
-GROUP BY C.ID;
-
-CREATE VIEW  PRODUTOMENORPRECO AS 
+CREATE VIEW  VW_PRODUTOMENORPRECO AS 
 SELECT C.NOME, MIN(P.PRECO) AS MENORPRECO FROM CATEGORIA AS C 
 INNER JOIN PRODUTO AS P ON P.IDCATEGORIA = C.ID
 GROUP BY C.ID;
 
-
-CREATE VIEW MEDIAPRECO AS 
+CREATE VIEW VW_MEDIAPRECO AS 
 SELECT C.NOME, TRUNCATE(AVG(P.PRECO),2)AS MEDIAPRECO FROM CATEGORIA AS C 
 INNER JOIN PRODUTO AS P ON P.IDCATEGORIA = C.ID
 GROUP BY C.ID;
 
-CREATE VIEW  PRODUTOMAIORPRECO AS 
+CREATE VIEW  VW_PRODUTOMAIORPRECO AS 
 SELECT C.NOME, MAX(P.PRECO) AS MAIORPRECO FROM CATEGORIA AS C 
 INNER JOIN PRODUTO AS P ON P.IDCATEGORIA = C.ID
 GROUP BY C.ID;
 
 
-
-
+<!DOCTYPE html>
+<html>
+    <head>
+        <mate charest="utf-8" />
+        <title>Hello world!</title>
+    </head>
+    <body>
+       <img src=”../imagem/powerbi.jpeg” alt=”some text” width=300 height=200>
+    </body>
+</html>
+```
