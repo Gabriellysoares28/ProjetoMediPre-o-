@@ -1,6 +1,6 @@
 # ProjetoMediPreço
 
-Gráficos PowerBI  
+#### Gráficos PowerBI  
 ![](https://raw.githubusercontent.com/bibiperigosa28/ProjetoMediPre-o-/main/imagem/powerbi.jpeg)
 
 - Projeto processo seletivo para a empresa MediPreço;
