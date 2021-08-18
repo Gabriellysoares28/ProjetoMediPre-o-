@@ -145,3 +145,6 @@ GROUP BY C.ID;
     </body>
 </html>
 ```
+
+      
+![](https://raw.githubusercontent.com/bibiperigosa28/ProjetoMediPre-o-/main/imagem/powerbi.jpeg)
