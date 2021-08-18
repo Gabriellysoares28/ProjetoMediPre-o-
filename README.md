@@ -114,37 +114,27 @@ VALUES
 ('GABRIELLY SOARES CALDEIRA');
 
 ### VIEW
+```
 Total de produtos daquela categoria;
 CREATE VIEW  VW_TOTALPRODUTOCATEGORIA AS 
 SELECT C.NOME, count(*) AS QTDPRODUTO FROM CATEGORIA AS C 
 INNER JOIN PRODUTO AS P ON P.IDCATEGORIA = C.ID
 GROUP BY C.ID;
- 
+ ```
 CREATE VIEW  VW_PRODUTOMENORPRECO AS 
 SELECT C.NOME, MIN(P.PRECO) AS MENORPRECO FROM CATEGORIA AS C 
 INNER JOIN PRODUTO AS P ON P.IDCATEGORIA = C.ID
 GROUP BY C.ID;
-
+```
 CREATE VIEW VW_MEDIAPRECO AS 
 SELECT C.NOME, TRUNCATE(AVG(P.PRECO),2)AS MEDIAPRECO FROM CATEGORIA AS C 
 INNER JOIN PRODUTO AS P ON P.IDCATEGORIA = C.ID
 GROUP BY C.ID;
-
+```
 CREATE VIEW  VW_PRODUTOMAIORPRECO AS 
 SELECT C.NOME, MAX(P.PRECO) AS MAIORPRECO FROM CATEGORIA AS C 
 INNER JOIN PRODUTO AS P ON P.IDCATEGORIA = C.ID
 GROUP BY C.ID;
-
-<!DOCTYPE html>
-<html>
-    <head>
-        <mate charest="utf-8" />
-    </head>
-    <body>
-       <img src=”https://raw.githubusercontent.com/bibiperigosa28/ProjetoMediPre-o-/main/imagem/powerbi.jpeg” alt=”Grafico” width="300" height="200"/>
-    </body>
-</html>
 ```
-
-      
+  
 ![](https://raw.githubusercontent.com/bibiperigosa28/ProjetoMediPre-o-/main/imagem/powerbi.jpeg)
